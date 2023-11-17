@@ -93,8 +93,16 @@ exports.findOne = (req, res) => {
 };
 
 // Update a User by the id in the request
+// const encryptPassword =  bcrypt.hashSync(req.body.password);
 exports.update = (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id;  
+
+  if (req.body.password) {
+    // Encriptar la nueva contraseña
+    const encryptedPassword = bcrypt.hashSync(req.body.password);
+    // Reemplazar la contraseña sin encriptar con la encriptada en el objeto req.body
+    req.body.password = encryptedPassword;
+  }
 
   User.update(req.body, {
     where: { id: id }

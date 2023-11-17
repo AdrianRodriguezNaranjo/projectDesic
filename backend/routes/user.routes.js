@@ -20,7 +20,7 @@ module.exports = app => {
   router.post("/signin", auth.signin);
 
   // // Delete a User with id
-  router.delete("/:id", users.delete);
+  router.delete("/:id", auth.isAuthenticated, users.delete);
 
   app.use('/api/users', router);
 };
