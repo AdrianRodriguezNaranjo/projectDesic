@@ -12,8 +12,19 @@ const getUsers = async () => {
   }
 }
 
-const create = async (user) => {
-  return http.post("/users", user);
+const create = async (nameuser,username,password) => {
+  try {
+    let user = {
+      name: nameuser,
+      username: username,
+      password: password
+    }
+    const response = await http.post("/users", user);
+    return response.data;
+  } catch (error) {
+    console.error("Error signup", error);
+    return null;
+  }
 };
 
 const signin = async (username, password) => {
@@ -21,7 +32,7 @@ const signin = async (username, password) => {
     const response = await http.post("/users/signin", {},
       {
         headers: {
-          Authorization: `Basic ${encodeCredentials(username,password)}`,
+          Authorization: `Basic ${encodeCredentials(username, password)}`,
           "Content-type": "application/json"
         },
       }
