@@ -52,20 +52,22 @@ function Login() {
   }
 
   return (
-    <>
-      <h2>Log In</h2>
-      <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} 
-      prefix={<UserOutlined />} />
-      <Input.Password
-        placeholder="Password"
-        value={password} onChange={(e) => setPassword(e.target.value)}
-        iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-      />
-      {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
-      <Button className="buttonLoggin" type="primary" onClick={submitUser}>Log in</Button>
-      <div className="question">¿No tienes cuenta?</div>
-      <div className="signup" onClick={navSingUp}>Sign Up</div>
-    </>
+    <div className="background-login">
+      <div className="container-login">
+        <h2>Log In</h2>
+        <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
+          prefix={<UserOutlined />} />
+        <Input.Password className="passwordInput"
+          placeholder="Password"
+          value={password} onChange={(e) => setPassword(e.target.value)}
+          iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+        />
+        {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
+        <Button className="buttonLoggin" type="primary" onClick={submitUser}>Log in</Button>
+        <div className="question">¿No tienes cuenta?</div>
+        <div className="signup" onClick={navSingUp}>Sign Up</div>
+      </div>
+    </div>
   );
 }
 

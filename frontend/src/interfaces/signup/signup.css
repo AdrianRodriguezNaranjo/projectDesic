@@ -1,0 +1,51 @@
+.background-signup {
+    background-color: #00778B;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.container-signup {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffffff;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .newusername,
+  .newname,
+  .newpasswordInput,
+  .newpasswordRepeatInput {
+    margin-top: 10px;
+  }
+  
+  .new-error-mesage {
+    color: #ff4d4f;
+    margin-top: 10px;
+  }
+  
+  .buttonSignup {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #F2A900;
+  }
+  
+  .cancel {
+    text-align: center;
+    color: #777;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .cancel:hover {
+    text-decoration: underline;
+  }
