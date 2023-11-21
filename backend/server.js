@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 4000;
  
 var corsOptions = {
-  origin: "http://localhost:8100"
+  origin: "http://localhost:3000"
 };
 // enable CORS
 app.use(cors(corsOptions));
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
  
 // database conection
-const db = require("./models");
+const db = require('./models'); 
 
 // For explotation. Database is not dropped.
 // db.sequelize.sync(); 

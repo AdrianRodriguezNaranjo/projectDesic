@@ -13,6 +13,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.BOOLEAN
       }
     });
+
+    User.associate = (models) => {
+      User.belongsToMany(models.busline, { through: 'UserLine' });
+    };
   
     return User;
   };
