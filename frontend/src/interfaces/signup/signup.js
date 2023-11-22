@@ -10,7 +10,7 @@ function Signup() {
   const nav = useNavigate();
 
   const [username, setUsername] = useState("");
-  const [nameuser, setNameuser] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
   // const [isAdmin, setisAdmin] = useState("");
@@ -25,7 +25,7 @@ function Signup() {
   }
 
   const validateInput = () => {
-    if (!username && !password && !nameuser && !passwordRepeat) {
+    if (!username && !password && !email && !passwordRepeat) {
       setVoidError("Faltan los campos");
       return false;
     } else if (!password) {
@@ -34,8 +34,8 @@ function Signup() {
     } else if (!username) {
       setVoidError("Falta el usuario");
       return false;
-    } else if (!nameuser) {
-      setVoidError("Falta el nombre");
+    } else if (!email) {
+      setVoidError("Falta el email");
       return false;
     } else if (!passwordRepeat) {
       setVoidError("Repite la contraseña");
@@ -48,7 +48,7 @@ function Signup() {
 
   const submitUser = async () => {
     if (validateInput()) {
-      const response = await UserService.create(nameuser, username, password);
+      const response = await UserService.create(email, username, password);
       console.log(response);
       if (response && response.access_token) {
         nav("/");
@@ -64,7 +64,7 @@ function Signup() {
         <h2>Sing up</h2>
         <Input className="newusername" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
           prefix={<UserOutlined />} />
-        <Input className="newname" placeholder="Name" value={nameuser} onChange={(e) => setNameuser(e.target.value)}
+        <Input className="newname" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}
           prefix={<UserOutlined />} />
         <Input.Password className="newpasswordInput"
           placeholder="Password"

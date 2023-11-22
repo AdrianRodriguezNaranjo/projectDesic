@@ -12,10 +12,10 @@ const getUsers = async () => {
   }
 }
 
-const create = async (nameuser,username,password) => {
+const create = async (email,username,password) => {
   try {
     let user = {
-      name: nameuser,
+      email: email,
       username: username,
       password: password
     }

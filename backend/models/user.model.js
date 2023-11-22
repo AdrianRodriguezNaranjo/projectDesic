@@ -3,10 +3,10 @@ module.exports = (sequelize, Sequelize) => {
       password: {
         type: Sequelize.STRING
       },
-      name: {
+      username: {
         type: Sequelize.STRING
       },
-      username: {
+      email: {
         type: Sequelize.STRING
       },
       isAdmin: {
