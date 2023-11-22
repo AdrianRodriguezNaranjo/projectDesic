@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 // Create and Save a new User
 exports.create = (req, res) => {
   //Validate request
-  if (!req.body.password || !req.body.username) {
+  if (!req.body.password || !req.body.email) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -17,8 +17,8 @@ exports.create = (req, res) => {
   // Create a User
   let user = {
     password: req.body.password,
-    name: req.body.name,
     username: req.body.username,
+    email: req.body.email,
     isAdmin: req.body.isAdmin ? req.body.isAdmin : false
   };
 
@@ -150,12 +150,12 @@ exports.delete = (req, res) => {
     });
 };
 
-// Find user by username and password
-exports.findUserByUsernameAndPassword = (req, res) => {
-  const user = req.body.username;
+// Find user by email and password
+exports.findUserByEmailAndPassword = (req, res) => {
+  const email = req.body.email;
   const pwd = req.body.password;
 
-  User.findOne({ where: { username: user, password: pwd } })
+  User.findOne({ where: { email: email, password: pwd } })
     .then(data => {
       res.send(data);
     })
