@@ -16,9 +16,9 @@ exports.create = (req, res) => {
   const busline = {
     id: req.body.id,
     direction: req.body.direction,
-    startStop: req.body.startStop,
-    finalStop: req.body.finalStop,
-    listStop: req.body.listStop,
+    startstop: req.body.startstop,
+    finalstop: req.body.finalstop,
+    liststop: req.body.liststop,
     filename: req.file ? req.file.filename : ""
   }
 
@@ -34,7 +34,7 @@ exports.create = (req, res) => {
 
 // Retrieve all buslines from the database.
 exports.findAll = (req, res) => {
-  Manga.findAll().then(data => {
+  Busline.findAll().then(data => {
     res.send(data);
   }).catch(err => {
     res.status(500).send({
@@ -47,13 +47,13 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Manga.findByPk(id)
+  Busline.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Manga with id=${id} was not found.`
+          message: `Busline with id=${id} was not found.`
         });
       }
     })
@@ -68,15 +68,16 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  const manga = {
+  const busline = {
     id: req.body.id,
-    name: req.body.name,
-    synopsis: req.body.synopsis,
-    chapter: req.body.chapter,
+    direction: req.body.direction,
+    startStop: req.body.startStop,
+    finalStop: req.body.finalStop,
+    listStop: req.body.listStop,
     filename: req.file ? req.file.filename : ""
   }
 
-  Manga.update(manga, {
+  Busline.update(busline, {
     where: { id: id }
   })
     .then(num => {
@@ -84,13 +85,13 @@ exports.update = (req, res) => {
         res.send(num);
       } else {
         res.status(404).send({
-          message: `Cannot update Manga with id=${id}. Maybe Manga was not found.`
+          message: `Cannot update Busline with id=${id}. Maybe Busline was not found.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not update Manga with id=" + id
+        message: "Could not update Busline with id=" + id
       });
     });
 };
@@ -99,7 +100,7 @@ exports.update = (req, res) => {
 exports.update2 = (req, res) => {
   const id = req.params.id;
 
-  Manga.update(req.body, {
+  Busline.update(req.body, {
     where: { id: id }
   })
     .then(num => {
@@ -107,13 +108,13 @@ exports.update2 = (req, res) => {
         res.send(num);
       } else {
         res.status(404).send({
-          message: `Cannot update Manga with id=${id}. Maybe Manga was not found.`
+          message: `Cannot update Busline with id=${id}. Maybe Busline was not found.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not update Manga with id=" + id
+        message: "Could not update Busline with id=" + id
       });
     });
 };
@@ -122,21 +123,21 @@ exports.update2 = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Manga.destroy({
+  Busline.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
-        res.send({ message: "Manga was deleted successfully." });
+        res.send({ message: "Busline was deleted successfully." });
       } else {
         res.status(404).send({
-          message: `Cannot delete Manga with id=${id}. Maybe Manga was not found.`
+          message: `Cannot delete Busline with id=${id}. Maybe Busline was not found.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Manga with id=" + id
+        message: "Could not delete Busline with id=" + id
       });
     });
 };

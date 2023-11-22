@@ -1,26 +1,33 @@
 module.exports = app => {
-    const users = require("../controllers/user.controller.js");
-    const auth = require("../controllers/auth.js");
-  
-    var router = require("express").Router();
-  
-    // Create a new User
-    router.post("/", users.create);
-  
-    // Retrieve all User
-    router.get("/", auth.isAuthenticated, users.findAll);
-  
-    // Retrieve a single User with id
-    router.get("/:id", auth.isAuthenticated, users.findOne);
-  
-    // Update a User with id
-    router.put("/:id", auth.isAuthenticated, users.update);
-  
-    // Sign in
-    router.post("/signin", auth.signin);
-  
-    // // Delete a User with id
-    router.delete("/:id", auth.isAuthenticated, users.delete);
-  
-    app.use('/api/users', router);
-  };
+  const busline = require("../controllers/busline.controller.js");
+  const auth = require("../controllers/auth.js");
+  var upload = require('../multer/upload');
+
+  var router = require("express").Router();
+
+  // Create a new busline
+  router.post("/", upload.single('file'), busline.create);
+  router.post("/", busline.create);
+
+  // Retrieve all buslines
+  router.get("/", busline.findAll);
+
+  // Retrieve a single busline with id
+  router.get("/:id", busline.findOne);
+
+  // Update a busline with id
+  router.put("/:id", upload.single('file'), (req, res) => {
+    if (req.file) {
+      // Handle updating with an image
+      busline.update(req, res);
+    } else {
+      // Handle updating without an image
+      busline.update2(req, res);
+    }
+  });
+
+  // Delete a busline with id
+  router.delete("/:id", busline.delete);
+
+  app.use('/api/buslines', router);
+};
