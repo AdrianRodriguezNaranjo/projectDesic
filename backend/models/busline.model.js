@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     liststop: {
       type: Sequelize.STRING
+    },
+    filename: {
+      type: Sequelize.STRING
     }
   });
 
