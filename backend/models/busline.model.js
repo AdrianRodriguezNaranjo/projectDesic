@@ -9,9 +9,6 @@ module.exports = (sequelize, Sequelize) => {
     finalstop: {
       type: Sequelize.STRING
     },
-    liststop: {
-      type: Sequelize.STRING
-    },
     filename: {
       type: Sequelize.STRING
     }

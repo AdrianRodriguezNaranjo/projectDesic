@@ -1,4 +1,4 @@
-import http from "../http-common";
+import http from "../../http-common";
 
 const encodeCredentials = (username, password) => {
   return btoa(`${username}:${password}`);
@@ -10,7 +10,7 @@ const getUsers = async () => {
   } catch (e) {
 
   }
-}
+};
 
 const create = async (email,username,password) => {
   try {

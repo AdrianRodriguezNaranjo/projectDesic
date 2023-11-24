@@ -3,6 +3,7 @@ import './App.css';
 import Login from "./interfaces/login/login";
 import Signup from "./interfaces/signup/signup";
 import Inicial from "./interfaces/inicial/inicial";
+import Busline from "./interfaces/busline/busline";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/inicial" element={<Inicial />} />
+        <Route path="/busline" element={<Busline />} />
       </Routes>
     </BrowserRouter>
   );
