@@ -1,7 +1,8 @@
 import "./buslineList.css";
 import React from "react";
+import {DeleteOutlined,EditOutlined} from '@ant-design/icons';
 
-const BuslineList = ({ items, rows, headline }) => {
+const BuslineList = ({ items, rows, headline, onDelete, onUpdate}) => {
 
   return (
     <div className="container-buslinelist">
@@ -27,7 +28,8 @@ const BuslineList = ({ items, rows, headline }) => {
                     "No tiene imagen"
                   )}
                 </td>
-                <td>Delete update</td>
+                <td><DeleteOutlined onClick={() => onDelete(item.id)}/></td>
+                <td><EditOutlined onClick={() => onUpdate(item)}/></td>
               </tr>
             ))
           ) : (

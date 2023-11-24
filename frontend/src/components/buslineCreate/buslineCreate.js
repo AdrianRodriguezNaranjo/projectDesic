@@ -1,7 +1,6 @@
 import "./buslineCreate.css";
 import { useState } from 'react';
 import { Button, Input } from 'antd';
-import { useNavigate } from "react-router-dom";
 import BuslineService from "../../services/busline/busline.service";
 
 function BuslineCreate() {
@@ -10,11 +9,11 @@ function BuslineCreate() {
     const [startstop, setStartstop] = useState();
     const [finalstop, setFinalstop] = useState();
 
-    const [voidLoginError, setVoidError] = useState("");
+    // const [voidLoginError, setVoidError] = useState("");
 
-    const validateInput = () => {
+    // const validateInput = () => {
 
-    }
+    // }
 
     const submitBusline = async () => {
         const formData = new FormData();
@@ -36,7 +35,7 @@ function BuslineCreate() {
                 onChange={(e) => setFile(e.target.files[0])}
                 type="file"
                 accept="image/*" />
-            {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
+            {/* {voidLoginError && <div className="error-mesage">{voidLoginError}</div>} */}
             <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Añadir</Button>
         </div>
     );

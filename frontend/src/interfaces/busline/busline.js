@@ -3,10 +3,17 @@ import BuslineList from "../../components/buslineList/buslineList";
 import "./busline.css";
 import BuslineService from "../../services/busline/busline.service";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Busline() {
+  const nav = useNavigate();
+
   const [lineList, setlineList] = useState([]);
   const headline = ['direction', 'startstop', 'finalstop', 'file'];
+
+  const navUpdate = () => {
+    nav("/buslineupdate");
+  }
 
   useEffect(() => {
     const getBusline = async () => {
@@ -18,7 +25,7 @@ function Busline() {
       }
     };
     getBusline();
-  }, [lineList]);
+  }, []);
 
   const row = (line) => {
     return (
@@ -30,11 +37,19 @@ function Busline() {
     );
   };
 
+  const onDelete = ((id) => {
+    BuslineService.remove(localStorage.getItem("accessToken"),id);
+  });
 
+  const onUpdate = ((data) => {
+    localStorage.setItem("busline",JSON.stringify(data));
+    navUpdate();
+  });
+  
   return (
     <>
       <BuslineCreate />
-      <BuslineList items={lineList} rows={row} headline={headline} />
+      <BuslineList items={lineList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate}/>
     </>
   );
 }

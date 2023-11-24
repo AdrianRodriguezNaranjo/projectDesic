@@ -30,37 +30,39 @@ const create = async (token, busline) => {
   }
 };
 
-//Update with a image
-const update1 = async () => {
+const update = async (token, id, updatedData) => {
   try {
-
+    const response = await http.put("/buslines/" + id, updatedData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
   } catch (error) {
-
+    console.error("Error updating busline with image", error);
+    return null;
   }
 };
 
-//Update without a image
-const update2 = async () => {
+const remove = async (token, id) => {
   try {
-
+    const response = await http.delete("/buslines/" + id, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
   } catch (error) {
-
-  }
-};
-
-const remove = async () => {
-  try {
-
-  } catch (error) {
-
+    console.error("Error delete busline", error);
+    return null;
   }
 };
 
 const BuslineService = {
   getBuslines,
   create,
-  update1,
-  update2,
+  update,
   remove
 };
 
