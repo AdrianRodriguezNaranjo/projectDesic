@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Button, Input } from 'antd';
-import UserService from "../../services/user.service";
+import UserService from "../../services/user/user.service";
 
 function Login() {
   const nav = useNavigate();
