@@ -74,6 +74,7 @@ app.use(function (req, res, next) {
 require("./routes/user.routes")(app);
 require("./routes/busline.routes")(app);
 require("./routes/stop.routes")(app);
+require("./routes/schedule.routes")(app);
 
 app.listen(port, () => {
   console.log('Server started on: ' + port);

@@ -1,16 +1,16 @@
 module.exports = (sequelize, Sequelize) => {
-  const Schedule = sequelize.define("stop", {
+  const Schedule = sequelize.define("schedule", {
     dayslist1: {
-      type: Sequelize.ARRAY(Sequelize.STRING)
+      type: Sequelize.STRING
     },
     hourlist1: {
-      type: Sequelize.ARRAY(Sequelize.STRING)
+      type: Sequelize.STRING
     },
     dayslist2: {
-      type: Sequelize.ARRAY(Sequelize.STRING)
+      type: Sequelize.STRING
     },
     hourlist2: {
-      type: Sequelize.ARRAY(Sequelize.STRING)
+      type: Sequelize.STRING
     },
   });
 
