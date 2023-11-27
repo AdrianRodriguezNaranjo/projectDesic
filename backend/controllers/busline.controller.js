@@ -22,7 +22,7 @@ exports.create = (req, res) => {
     filename: req.file ? req.file.filename : ""
   }
 
-  // Save Manga in the database
+  // Save busline in the database
   Busline.create(busline).then(data => {
     res.send(data);
   }).catch(err => {
@@ -38,12 +38,12 @@ exports.findAll = (req, res) => {
     res.send(data);
   }).catch(err => {
     res.status(500).send({
-      message: err.message || "Some error occurred while retrieving all Mangas"
+      message: err.message || "Some error occurred while retrieving all buslines"
     })
   })
 };
 
-// Find a single manga with an id
+// Find a single busline with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
