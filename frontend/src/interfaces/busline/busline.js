@@ -13,7 +13,7 @@ function Busline() {
 
   const navUpdate = () => {
     nav("/buslineupdate");
-  }
+  };
 
   useEffect(() => {
     const getBusline = async () => {
@@ -25,7 +25,7 @@ function Busline() {
       }
     };
     getBusline();
-  }, []);
+  }, [lineList]);
 
   const row = (line) => {
     return (
@@ -45,11 +45,17 @@ function Busline() {
     localStorage.setItem("busline",JSON.stringify(data));
     navUpdate();
   });
+
+  const goToStop = ((id) => {
+    localStorage.setItem("idBusline",id);
+    nav("/stop");
+  });
+
   
   return (
     <>
       <BuslineCreate />
-      <BuslineList items={lineList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate}/>
+      <BuslineList items={lineList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate} goToStop={goToStop}/>
     </>
   );
 }

@@ -20,23 +20,12 @@ const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop}) =>
           {items && items.length > 0 ? (
             items.map((item) => (
               <tr key={item.id}>
-                {rows(item)}
-                <td>
-                  {item.filename ? (
-                    <img src={`http://localhost:4000/images/${item.filename}`} alt="Busline" style={{ maxWidth: "100px" }} />
-                  ) : (
-                    "No tiene imagen"
-                  )}
-                </td>
-                <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
-                <td><EditOutlined onClick={() => onUpdate(item)} /></td>
-                <td><DownOutlined onClick={() => goToStop(item.id)}/></td>
-                <td><CopyOutlined /></td>
+                {rows(item)}                
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={headline.length + 1}>No hay líneas</td>
+              <td colSpan={headline.length + 1}>No hay paradas</td>
             </tr>
           )}
         </tbody>
