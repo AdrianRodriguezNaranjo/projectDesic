@@ -1,7 +1,6 @@
 module.exports = app => {
     const stop = require("../controllers/stop.controller.js");
     const auth = require("../controllers/auth.js");
-    var upload = require('../multer/upload');
 
     var router = require("express").Router();
 
