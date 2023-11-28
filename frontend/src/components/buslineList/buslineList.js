@@ -1,8 +1,8 @@
 import "./buslineList.css";
 import React from "react";
-import {DeleteOutlined,EditOutlined} from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, DownOutlined, CopyOutlined } from '@ant-design/icons';
 
-const BuslineList = ({ items, rows, headline, onDelete, onUpdate}) => {
+const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop}) => {
 
   return (
     <div className="container-buslinelist">
@@ -22,14 +22,16 @@ const BuslineList = ({ items, rows, headline, onDelete, onUpdate}) => {
               <tr key={item.id}>
                 {rows(item)}
                 <td>
-                {item.filename ? (
+                  {item.filename ? (
                     <img src={`http://localhost:4000/images/${item.filename}`} alt="Busline" style={{ maxWidth: "100px" }} />
                   ) : (
                     "No tiene imagen"
                   )}
                 </td>
-                <td><DeleteOutlined onClick={() => onDelete(item.id)}/></td>
-                <td><EditOutlined onClick={() => onUpdate(item)}/></td>
+                <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
+                <td><EditOutlined onClick={() => onUpdate(item)} /></td>
+                <td><DownOutlined onClick={() => goToStop(item.id)}/></td>
+                <td><CopyOutlined /></td>
               </tr>
             ))
           ) : (
