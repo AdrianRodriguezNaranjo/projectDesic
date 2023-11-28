@@ -25,7 +25,7 @@ function Busline() {
       }
     };
     getBusline();
-  }, [lineList]);
+  }, []);
 
   const row = (line) => {
     return (

@@ -1,12 +1,12 @@
-import "./buslineList.css";
+import "./stopList.css";
 import React from "react";
-import { DeleteOutlined, EditOutlined, DownOutlined, CopyOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
-const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop}) => {
+const StopList = ({ items, rows, headline, onDelete, onUpdate}) => {
 
   return (
-    <div className="container-buslinelist">
-      <h2>Lista de guaguas</h2>
+    <div className="container-stoplist">
+      <h2>Lista de paradas</h2>
       <table>
         <thead>
           <tr>
@@ -20,7 +20,9 @@ const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop}) =>
           {items && items.length > 0 ? (
             items.map((item) => (
               <tr key={item.id}>
-                {rows(item)}                
+                {rows(item)} 
+                <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
+                <td><EditOutlined onClick={() => onUpdate(item)} /></td>               
               </tr>
             ))
           ) : (
@@ -34,4 +36,4 @@ const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop}) =>
   );
 }
 
-export default BuslineList;
+export default StopList;
