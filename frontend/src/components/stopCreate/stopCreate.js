@@ -3,7 +3,7 @@ import StopService from "../../services/stop/stop.service";
 import { useState, useEffect } from 'react';
 import { Button, Input } from 'antd';
 
-function StopCreate({ stop, mode, onCancel }) {
+function StopCreate({ stop, mode, onCancel, afterAction }) {
   const [latitude, setLatitude] = useState(stop.Latitude || "");
   const [longitude, setLongitude] = useState(stop.Longitude || "");
   const [nameStop, setNameStop] = useState(stop.name || "");
@@ -25,13 +25,14 @@ function StopCreate({ stop, mode, onCancel }) {
     formData.append('longitude', longitude);
     formData.append('name', nameStop);
     if (mode === "Editar") {
-      StopService.update(stop.id, formData);
+      await StopService.update(stop.id, formData);
     } else if (mode === "Añadir") {
-      StopService.create(formData);
+      await StopService.create(formData);
       setLatitude("");
       setLongitude("");
       setNameStop("");
     }
+    afterAction();
   }
 
   return (

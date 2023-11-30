@@ -11,17 +11,18 @@ function Stop() {
   const headline = ['latitude', 'longitude', 'name'];
   const [mode, setMode] = useState(Consts.addMode);
 
+  const getStop = async () => {
+    try {
+      const response = await StopService.getStops();
+      setStopList(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getStop = async () => {
-      try {
-        const response = await StopService.getStops();
-        setStopList(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getStop();
-  }, [stopList]);
+  }, [])
 
   const row = (item) => {
     return (
@@ -33,14 +34,14 @@ function Stop() {
     );
   };
 
-  const onDelete = ((id) => {
-    StopService.remove(id);
-  });
+  const onDelete = async (id) => {
+    await StopService.remove(id);
+    getStop();
+  };
 
   const onUpdate = ((data) => {
     setMode(Consts.editMode);
     const stopToEdit = stopList.find(stop => stop.id === data.id);
-    console.log(stopToEdit);
     setStop(stopToEdit);
   });
 
@@ -51,8 +52,14 @@ function Stop() {
 
   return (
     <>
-      <StopCreate stop={stop} mode={mode} onCancel={onCancel}/>
-      <StopList items={stopList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate} />
+      <StopCreate stop={stop} mode={mode} onCancel={onCancel} afterAction={getStop} />
+      <StopList
+        items={stopList}
+        rows={row}
+        headline={headline}
+        onDelete={onDelete}
+        onUpdate={onUpdate}
+      />
     </>
   );
 }

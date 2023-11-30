@@ -38,24 +38,32 @@ function Busline() {
   };
 
   const onDelete = ((id) => {
-    BuslineService.remove(localStorage.getItem("accessToken"),id);
+    BuslineService.remove(localStorage.getItem("accessToken"), id);
   });
 
   const onUpdate = ((data) => {
-    localStorage.setItem("busline",JSON.stringify(data));
+    localStorage.setItem("busline", JSON.stringify(data));
     navUpdate();
   });
 
   const goToStop = ((id) => {
-    localStorage.setItem("idBusline",id);
+    localStorage.setItem("idBusline", id);
     nav("/stop");
   });
 
-  
+  const goToSchedule = ((id) => {
+    localStorage.setItem("idBusline", id);
+    nav("/schedule");
+  });
+
+
   return (
     <>
       <BuslineCreate />
-      <BuslineList items={lineList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate} goToStop={goToStop}/>
+      <BuslineList items={lineList} rows={row}
+        headline={headline} onDelete={onDelete}
+        onUpdate={onUpdate} goToStop={goToStop}
+        goToSchedule={goToSchedule} />
     </>
   );
 }
