@@ -10,10 +10,7 @@ exports.create = (req, res) => {
 
   // Crear un horario
   const schedule = {
-    dayslist1: req.body.dayslist1,
-    hourlist1: req.body.hourlist1,
-    dayslist2: req.body.dayslist2,
-    hourlist2: req.body.hourlist2,
+    hour: req.body.hour,
   };
 
   // Guardar el horario en la base de datos
@@ -65,10 +62,7 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   const schedule = {
-    dayslist1: req.body.dayslist1,
-    hourlist1: req.body.hourlist1,
-    dayslist2: req.body.dayslist2,
-    hourlist2: req.body.hourlist2,
+    hour: req.body.hour,
   };
 
   Schedule.update(schedule, {

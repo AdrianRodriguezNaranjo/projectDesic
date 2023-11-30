@@ -6,6 +6,7 @@ import Inicial from "./interfaces/inicial/inicial";
 import Busline from "./interfaces/busline/busline";
 import BuslineUpdate from "./components/buslineUpdate/buslineUpdate";
 import Stop from "./interfaces/stop/stop";
+import Schedule from "./interfaces/schedule/schedule";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/busline" element={<Busline />} />
         <Route path="/buslineupdate" element={<BuslineUpdate />} />
         <Route path="/stop" element={<Stop />} />
+        <Route path="/schedule" element={<Schedule />} />
       </Routes>
     </BrowserRouter>
   );

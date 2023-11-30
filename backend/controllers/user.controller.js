@@ -65,7 +65,7 @@ exports.create = (req, res) => {
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
 
-  User.findAll()
+  User.findAll({attributes: {exclude: ['password']}})
     .then(data => {
       res.send(data);
     })
@@ -81,7 +81,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  User.findByPk(id)
+  User.findByPk(id,{attributes: {exclude: ['password']}})
     .then(data => {
       res.send(data);
     })
