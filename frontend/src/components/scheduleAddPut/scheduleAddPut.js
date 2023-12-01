@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import ScheduleService from "../../services/schedule/schedule.service";
 import { Button, Input } from 'antd';
 
-function ScheduleAddPut({edithour, mode, onCancel, afterAction}) {
+function ScheduleAddPut({ edithour, mode, onCancel, afterAction }) {
   const [hour, setHour] = useState(edithour.hour || "");
 
   useEffect(() => {
-      setHour(edithour.hour || "");
+    setHour(edithour.hour || "");
   }, [edithour]);
 
   const submitHour = async () => {
@@ -16,6 +16,7 @@ function ScheduleAddPut({edithour, mode, onCancel, afterAction}) {
     if (mode === "Editar") {
       await ScheduleService.update(edithour.id, formData);
     } else if (mode === "Añadir") {
+      formData.append('buslineId', localStorage.getItem("idBusline"));
       await ScheduleService.create(formData);
       setHour("");
     }

@@ -1,6 +1,7 @@
 import "./schedule.css"
 import React, { useEffect, useState } from "react";
 import ScheduleService from "../../services/schedule/schedule.service";
+import BuslineService from "../../services/busline/busline.service";
 import ScheduleDetails from "../../components/scheduleDetails/scheduleDetails";
 import ScheduleAddPut from "../../components/scheduleAddPut/scheduleAddPut";
 import Consts from "../../components/const/const";
@@ -13,8 +14,11 @@ function Schedule() {
 
   const getSchedule = async () => {
     try {
-      const response = await ScheduleService.getAll();
-      setSchedule(response);
+      const response = await BuslineService.getScheduleOfBusline(localStorage.getItem("accessToken"),
+      localStorage.getItem("idBusline"));
+
+      const res = response.map(item => item.schedule);
+      setSchedule(res);
     } catch (error) {
       console.log(error);
     }
