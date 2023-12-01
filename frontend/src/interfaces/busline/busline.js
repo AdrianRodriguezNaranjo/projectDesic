@@ -15,15 +15,16 @@ function Busline() {
     nav("/buslineupdate");
   };
 
+  const getBusline = async () => {
+    try {
+      const response = await BuslineService.getBuslines(localStorage.getItem("accessToken"));
+      setlineList(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getBusline = async () => {
-      try {
-        const response = await BuslineService.getBuslines(localStorage.getItem("accessToken"));
-        setlineList(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getBusline();
   }, []);
 
