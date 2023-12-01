@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
   });
 
   Busline.associate = (models) => {
-    Busline.belongsTo(models.user, { through: 'UserLine' });
+    Busline.belongsToMany(models.schedule, { through: models.lineschedule , onDelete: 'CASCADE', onUpdate: 'CASCADE'});
   };
 
   return Busline;

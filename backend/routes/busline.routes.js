@@ -1,5 +1,6 @@
 module.exports = app => {
   const busline = require("../controllers/busline.controller.js");
+  const lineschedule = require("../controllers/lineschedule.controller.js");
   const auth = require("../controllers/auth.js");
   var upload = require('../multer/upload');
 
@@ -14,6 +15,9 @@ module.exports = app => {
 
   // Retrieve a single busline with id
   router.get("/:id", auth.isAuthenticated, busline.findOne);
+
+  router.get("/:buslineId/schedule", auth.isAuthenticated, lineschedule.getLineSchedule);
+  router.post("/:buslineId/schedule", auth.isAuthenticated, lineschedule.addLineSchedule);
 
   // Update a busline with id
   router.put("/:id", auth.isAuthenticated, upload.single('file'), (req, res) => {
