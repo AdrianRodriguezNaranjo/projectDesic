@@ -11,5 +11,9 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
 
+  Stop.associate = (models) => {
+    Stop.belongsToMany(models.busline, { through: models.linestop, onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+  };
+
   return Stop;
 };

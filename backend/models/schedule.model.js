@@ -4,6 +4,10 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
   });
+  
+  Schedule.associate = (models) => {
+    Schedule.belongsToMany(models.busline, { through: models.lineschedule, onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+  };
 
   return Schedule;
 };

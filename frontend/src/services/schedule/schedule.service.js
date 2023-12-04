@@ -20,9 +20,9 @@ const getAll = async () => {
   }
 };
 
-const create = async (schedule) => {
+const create = async (data) => {
   try {
-    const response = await http.post("/schedule", schedule);
+    const response = await http.post("/schedule", data);
     return response.data;
   } catch (error) {
     console.error("Error post schedule", error);
