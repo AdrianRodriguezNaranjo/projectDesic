@@ -30,7 +30,7 @@ function getCleanUser(user) {
     name: user.name,
     username: user.username,
     isAdmin: user.isAdmin,
-    password: user.password
+    email: user.email
   };
 }
  
