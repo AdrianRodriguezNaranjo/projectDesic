@@ -16,7 +16,10 @@ I am going to create an app to use and get information about the bus company Glo
 ## 4. Use cases
 ### VisualParading
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc55b48e-f331-4c61-8f9f-2aba1e3b0e32)
+![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
+
 ## 5. Sistem performance
+
 
 ## 6. Interfaces
 ### Inicial Design
