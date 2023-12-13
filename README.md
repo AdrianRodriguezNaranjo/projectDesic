@@ -9,7 +9,7 @@ I am going to create an app to use and get information about the bus company Glo
 ## 2. Diagrams
 ### Class Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
-### EDR Diagram
+### ERD Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/cafd3938-1331-4eb2-9244-93874111c7f9)
 
 ## 3. User Requirements
