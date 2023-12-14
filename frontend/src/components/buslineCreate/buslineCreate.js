@@ -34,8 +34,7 @@ function BuslineCreate() {
       <Input 
         onChange={(e) => setFile(e.target.files[0])}
         type="file"
-        accept="image/*" 
-        name="image"/>
+        accept="image/*"/>
       <div className="images">
         {file && (
           <div className="image">

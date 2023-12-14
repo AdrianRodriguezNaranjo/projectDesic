@@ -1,6 +1,6 @@
 import "./buslineList.css";
 import React from "react";
-import { DeleteOutlined, EditOutlined, DownOutlined, CopyOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, EnvironmentOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop, goToSchedule}) => {
 
@@ -30,8 +30,8 @@ const BuslineList = ({ items, rows, headline, onDelete, onUpdate , goToStop, goT
                 </td>
                 <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
                 <td><EditOutlined onClick={() => onUpdate(item)} /></td>
-                <td><DownOutlined onClick={() => goToStop(item.id)}/></td>
-                <td><CopyOutlined onClick={() => goToSchedule(item.id)}/></td>
+                <td><EnvironmentOutlined onClick={() => goToStop(item.id)}/></td>
+                <td><ClockCircleOutlined onClick={() => goToSchedule(item.id)}/></td>
               </tr>
             ))
           ) : (
