@@ -5,6 +5,7 @@ import BuslineService from "../../services/busline/busline.service";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 function Busline() {
   const nav = useNavigate();
@@ -59,16 +60,16 @@ function Busline() {
     nav("/schedule");
   });
 
-
   return (
-    <>
+    <div className="busline-content">
       <Header />
       <BuslineCreate afterAction={getBusline}/>
       <BuslineList items={lineList} rows={row}
         headline={headline} onDelete={onDelete}
         onUpdate={onUpdate} goToStop={goToStop}
         goToSchedule={goToSchedule} />
-    </>
+      <Footer />
+    </div>
   );
 }
 

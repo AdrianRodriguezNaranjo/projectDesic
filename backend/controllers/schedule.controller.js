@@ -14,15 +14,12 @@ exports.create = (req, res) => {
     hour: req.body.hour,
   };
 
-  // Guardar el horario en la base de datos
   Schedule.create(schedule)
     .then(newSchedule => {
-      // Asociar el nuevo horario con la línea de autobús
       if (req.body.buslineId) {
         Busline.findByPk(req.body.buslineId)
           .then(busline => {
             if (busline) {
-              // Asociar el horario con la línea de autobús
               newSchedule.addBusline(busline);
             }
           })
@@ -30,7 +27,6 @@ exports.create = (req, res) => {
             console.error("Error finding Busline:", err);
           });
       }
-
       res.send(newSchedule);
     })
     .catch(err => {

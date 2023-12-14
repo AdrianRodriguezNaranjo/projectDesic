@@ -1,9 +1,8 @@
 import React from "react";
+import "./scheduleDetails.css"
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
-  // Supongamos que schedule es una cadena con cuatro datos separados por "|"
-  // const scheduleHour = schedule.hourlist.split('-');
 
   return (
     <div className="container-scheduledetails">
@@ -14,6 +13,7 @@ const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
             {headline.map((headline, index) => (
               <th key={index}>{headline}</th>
             ))}
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -21,8 +21,10 @@ const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
             items.map((item) => (
               <tr key={item.id}>
                 {rows(item)}
-                <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
-                <td><EditOutlined onClick={() => onUpdate(item)} /></td>
+                <td>
+                  <DeleteOutlined onClick={() => onDelete(item.id)} />
+                  <EditOutlined onClick={() => onUpdate(item)} />
+                </td>
               </tr>
             ))
           ) : (

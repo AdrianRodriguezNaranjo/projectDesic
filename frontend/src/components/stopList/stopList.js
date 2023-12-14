@@ -2,7 +2,7 @@ import "./stopList.css";
 import React from "react";
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
-const StopList = ({ items, rows, headline, onDelete, onUpdate}) => {
+const StopList = ({ items, rows, headline, onDelete, onUpdate }) => {
 
   return (
     <div className="container-stoplist">
@@ -20,9 +20,11 @@ const StopList = ({ items, rows, headline, onDelete, onUpdate}) => {
           {items && items.length > 0 ? (
             items.map((item) => (
               <tr key={item.id}>
-                {rows(item)} 
-                <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
-                <td><EditOutlined onClick={() => onUpdate(item)} /></td>               
+                {rows(item)}
+                <td>
+                  <DeleteOutlined onClick={() => onDelete(item.id)} />
+                  <EditOutlined onClick={() => onUpdate(item)} />
+                </td>
               </tr>
             ))
           ) : (
