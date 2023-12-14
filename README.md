@@ -43,18 +43,22 @@ descriptivos, restricciones o cualquier otro cambio.
 
 ## 7. Manuals
 
-## 8. Tecnologies
+## 8. Test de prueba para Backend
+
+## 9. Test de prueba para Fronted
+
+## 10. Tecnologies
 * Frontend: ReactJS
 * Backend: Node.js
 * ORM: node
 * Database: MySQL
 
-## 9. Tecnologies comparation
+## 11. Tecnologies comparation
 
-## 10. Repositories
+## 12. Repositories
 
-## 11. Planification
+## 13. Planification
 
-## 12. Conclusion
+## 14. Conclusion
 
-## 13. Links and references
+## 15. Links and references
