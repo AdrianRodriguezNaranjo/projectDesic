@@ -1,4 +1,5 @@
 import React from "react";
+import "./scheduleDetails.css"
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
@@ -21,8 +22,10 @@ const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
             items.map((item) => (
               <tr key={item.id}>
                 {rows(item)}
-                <td><DeleteOutlined onClick={() => onDelete(item.id)} /></td>
-                <td><EditOutlined onClick={() => onUpdate(item)} /></td>
+                <td>
+                  <DeleteOutlined onClick={() => onDelete(item.id)} />
+                  <EditOutlined onClick={() => onUpdate(item)} />
+                </td>
               </tr>
             ))
           ) : (

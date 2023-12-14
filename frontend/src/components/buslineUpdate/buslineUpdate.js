@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
 import BuslineService from "../../services/busline/busline.service";
+import Header from "../header/header";
 
 function BuslineUpdate() {
   const nav = useNavigate();
@@ -37,31 +38,39 @@ function BuslineUpdate() {
     }
   }
 
-  return (
-    <div className="container-buslinecreate">
-      <h2>Actualiza línea de guagua</h2>
-      <Input placeholder={data.direction} value={direction} onChange={(e) => setDirection(e.target.value)} />
-      <Input placeholder={data.startstop} value={startstop} onChange={(e) => setStartstop(e.target.value)} />
-      <Input placeholder={data.finalstop} value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
+  const onCancel = async () => {
+    nav("/busline");
+  }
 
-      <Input
-        onChange={(e) => setNewFile(e.target.files[0])}
-        type="file"
-        accept="image/*"
-        name="image" />
-      {/* <div className="images">
-        {newfile && (
-          <div className="image">
-            <img src={newfile} height="200" alt="upload" />
-            <Button onClick={() => setNewFile(null)}>
-              Eliminar imagen
-            </Button>
-          </div>
-        )}
-      </div> */}
-      {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
-      <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Actualizar</Button>
-    </div>
+  return (
+    <>
+      <Header />
+      <div className="container-buslinecreate">
+        <h2>Actualiza línea de guagua</h2>
+        <Input placeholder={data.direction} value={direction} onChange={(e) => setDirection(e.target.value)} />
+        <Input placeholder={data.startstop} value={startstop} onChange={(e) => setStartstop(e.target.value)} />
+        <Input placeholder={data.finalstop} value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
+
+        <Input
+          onChange={(e) => setNewFile(e.target.files[0])}
+          type="file"
+          accept="image/*"
+          name="image" />
+        {/* <div className="images">
+      {newfile && (
+        <div className="image">
+          <img src={newfile} height="200" alt="upload" />
+          <Button onClick={() => setNewFile(null)}>
+            Eliminar imagen
+          </Button>
+        </div>
+      )}
+    </div> */}
+        {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
+        <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Actualizar</Button>
+        <Button className="buttonCancel" danger type="primary" onClick={onCancel}>Cancelar</Button>
+      </div>
+    </>
   );
 }
 

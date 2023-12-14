@@ -1,11 +1,10 @@
 .header-content {
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
   background-color: #00778B;
   color: #ecf0f1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 }
@@ -14,6 +13,7 @@
 .right-content {
   display: flex;
   align-items: center;
+  padding: 10px 20px;
 }
 
 .logo {

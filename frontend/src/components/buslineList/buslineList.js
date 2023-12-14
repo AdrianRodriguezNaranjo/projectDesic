@@ -5,9 +5,9 @@ import { DeleteOutlined, EditOutlined, EnvironmentOutlined, ClockCircleOutlined 
 const BuslineList = ({ items, rows, headline, onDelete, onUpdate, goToStop, goToSchedule }) => {
 
   return (
-    <>      
+    <>
+      <h2>Lista de guaguas</h2>
       <div className="container-buslinelist">
-        <h2>Lista de guaguas</h2>
         <table>
           <thead>
             <tr>

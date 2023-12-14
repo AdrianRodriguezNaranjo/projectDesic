@@ -61,14 +61,14 @@ function Busline() {
 
 
   return (
-    <>
+    <div className="busline-content">
       <Header />
       <BuslineCreate afterAction={getBusline}/>
       <BuslineList items={lineList} rows={row}
         headline={headline} onDelete={onDelete}
         onUpdate={onUpdate} goToStop={goToStop}
         goToSchedule={goToSchedule} />
-    </>
+    </div>
   );
 }
 
