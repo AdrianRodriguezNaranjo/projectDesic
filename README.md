@@ -7,6 +7,8 @@ Desic.
 * Idea
 I am going to create an app to use and get information about the bus company Global.
 ## 2. Diagrams
+![image](https://github.com/Naidr/projectDesic/assets/118465343/15d04fbd-afd8-4920-b3b6-caf0c91e0999)
+
 ### Class Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
 ### ERD Diagram
