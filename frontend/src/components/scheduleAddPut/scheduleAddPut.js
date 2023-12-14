@@ -29,7 +29,7 @@ function ScheduleAddPut({ edithour, mode, onCancel, afterAction }) {
       <Input placeholder="Hour" value={hour} onChange={(e) => setHour(e.target.value)} />
       {/* {voidLoginError && <div className="error-mesage">{voidLoginError}</div>} */}
       <Button className="buttonSchedule" type="primary" onClick={submitHour}>{mode}</Button>
-      {mode === "Editar" && (<Button danger type="primary" onClick={onCancel}>Cancelar</Button>)}
+      {mode === "Editar" && (<Button className="buttonCancel" danger type="primary" onClick={onCancel}>Cancelar</Button>)}
     </div>
   );
 }

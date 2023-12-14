@@ -4,6 +4,7 @@ import "./busline.css";
 import BuslineService from "../../services/busline/busline.service";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/header/header";
 
 function Busline() {
   const nav = useNavigate();
@@ -38,9 +39,10 @@ function Busline() {
     );
   };
 
-  const onDelete = ((id) => {
-    BuslineService.remove(localStorage.getItem("accessToken"), id);
-  });
+  const onDelete = async (id) => {
+    await BuslineService.remove(localStorage.getItem("accessToken"), id);
+    getBusline();
+  };
 
   const onUpdate = ((data) => {
     localStorage.setItem("busline", JSON.stringify(data));
@@ -60,7 +62,8 @@ function Busline() {
 
   return (
     <>
-      <BuslineCreate />
+      <Header />
+      <BuslineCreate afterAction={getBusline}/>
       <BuslineList items={lineList} rows={row}
         headline={headline} onDelete={onDelete}
         onUpdate={onUpdate} goToStop={goToStop}

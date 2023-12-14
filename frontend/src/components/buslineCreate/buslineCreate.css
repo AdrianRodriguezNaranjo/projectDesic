@@ -1,0 +1,43 @@
+.container-buslinecreate {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.input {
+  margin-top: 10px;
+}
+
+.file-input {
+  margin-top: 10px;
+}
+
+.images {
+  margin-top: 10px;
+}
+
+.image {
+  margin-top: 10px;
+}
+
+.image img {
+  height: 200px;
+}
+
+.error-message {
+  color: #ff4d4f;
+  margin-top: 10px;
+}
+
+.buttonCreateBusline {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #f2a900;
+}
