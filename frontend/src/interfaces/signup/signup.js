@@ -49,7 +49,6 @@ function Signup() {
   const submitUser = async () => {
     if (validateInput()) {
       const response = await UserService.create(email, username, password);
-      console.log(response);
       if (response && response.access_token) {
         nav("/");
       } else {

@@ -3,8 +3,6 @@ import "./scheduleDetails.css"
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
-  // Supongamos que schedule es una cadena con cuatro datos separados por "|"
-  // const scheduleHour = schedule.hourlist.split('-');
 
   return (
     <div className="container-scheduledetails">
@@ -15,6 +13,7 @@ const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
             {headline.map((headline, index) => (
               <th key={index}>{headline}</th>
             ))}
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>

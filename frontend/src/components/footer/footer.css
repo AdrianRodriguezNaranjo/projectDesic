@@ -1,0 +1,38 @@
+.footer-content {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00778B;
+  color: #fff; 
+  bottom: 0;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-item span {
+  margin-top: 5px; 
+}
+
+.footer-item:hover {
+  color: #f2a900;
+}
+
+.footer-left-content {
+  flex: 1;
+}
+
+.footer-center-content {
+  flex: 1;
+}
+
+.footer-right-content {
+  flex: 1;
+}

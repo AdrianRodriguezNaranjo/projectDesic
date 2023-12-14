@@ -3,6 +3,7 @@ import StopCreate from "../../components/stopCreate/stopCreate";
 import StopList from "../../components/stopList/stopList";
 import React, { useEffect, useState } from "react";
 import StopService from "../../services/stop/stop.service";
+import BuslineService from "../../services/busline/busline.service";
 import Consts from "../../components/const/const";
 import Header from "../../components/header/header";
 
@@ -14,8 +15,11 @@ function Stop() {
 
   const getStop = async () => {
     try {
-      const response = await StopService.getStops();
-      setStopList(response);
+      const response = await BuslineService.getStopOfBusline(localStorage.getItem("accessToken"),
+      localStorage.getItem("idBusline"));
+      const res = response.map(item => item.stop);
+      setStopList(res);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }

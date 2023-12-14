@@ -27,6 +27,7 @@ function StopCreate({ stop, mode, onCancel, afterAction }) {
     if (mode === "Editar") {
       await StopService.update(stop.id, formData);
     } else if (mode === "Añadir") {
+      formData.append('buslineId', localStorage.getItem("idBusline"));
       await StopService.create(formData);
       setLatitude("");
       setLongitude("");
