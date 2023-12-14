@@ -43,7 +43,7 @@ function StopCreate({ stop, mode, onCancel, afterAction }) {
       <Input placeholder="Nombre" value={nameStop} onChange={(e) => setNameStop(e.target.value)} />
       {/* {voidLoginError && <div className="error-mesage">{voidLoginError}</div>} */}
       <Button className="buttonCreateStop" type="primary" onClick={submitStop}>{mode}</Button>
-      {mode === "Editar" && (<Button danger type="primary" onClick={onCancel}>Cancelar</Button>)}
+      {mode === "Editar" && (<Button className="buttonCancel" danger type="primary" onClick={onCancel}>Cancelar</Button>)}
     </div>
   );
 }

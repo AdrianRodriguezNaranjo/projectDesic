@@ -44,6 +44,36 @@ const addScheduleToBusline = async (token, buslineId, scheduleId) => {
   }
 };
 
+const getStopOfBusline = async (token, buslineId) => {
+  try {
+    const response = await http.get("/buslines/" + buslineId + "/stop", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/x-www-form-urlencoded"
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error get busline", error);
+    return null;
+  }
+};
+
+const addStopToBusline = async (token, buslineId, stopId) => {
+  try {
+    const response = await http.post("/buslines/" + buslineId + "/stop", stopId, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/x-www-form-urlencoded"
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error get busline", error);
+    return null;
+  }
+};
+
 const create = async (token, busline) => {
   try {
     const response = await http.post("/buslines", busline,
@@ -93,6 +123,8 @@ const BuslineService = {
   getBuslines,
   getScheduleOfBusline,
   addScheduleToBusline,
+  getStopOfBusline,
+  addStopToBusline,
   create,
   update,
   remove

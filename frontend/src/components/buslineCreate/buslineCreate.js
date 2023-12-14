@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Input } from 'antd';
 import BuslineService from "../../services/busline/busline.service";
 
-function BuslineCreate() {
+function BuslineCreate({afterAction}) {
   const [file, setFile] = useState();
   const [direction, setDirection] = useState();
   const [startstop, setStartstop] = useState();
@@ -22,20 +22,20 @@ function BuslineCreate() {
     formData.append('finalstop', finalstop);
     formData.append('file', file);
 
-    BuslineService.create(localStorage.getItem("accessToken"), formData);
+    await BuslineService.create(localStorage.getItem("accessToken"), formData);
+    afterAction();
   }
 
   return (
     <div className="container-buslinecreate">
-      <h2>Crea línea de guagua</h2>
+      <h2>Crear Línea</h2>
       <Input placeholder="Direction" value={direction} onChange={(e) => setDirection(e.target.value)} />
       <Input placeholder="Start Stop" value={startstop} onChange={(e) => setStartstop(e.target.value)} />
       <Input placeholder="Final Stop" value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
       <Input 
         onChange={(e) => setFile(e.target.files[0])}
         type="file"
-        accept="image/*" 
-        name="image"/>
+        accept="image/*"/>
       <div className="images">
         {file && (
           <div className="image">

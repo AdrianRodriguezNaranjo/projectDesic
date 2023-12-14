@@ -5,6 +5,7 @@ import BuslineService from "../../services/busline/busline.service";
 import ScheduleDetails from "../../components/scheduleDetails/scheduleDetails";
 import ScheduleAddPut from "../../components/scheduleAddPut/scheduleAddPut";
 import Consts from "../../components/const/const";
+import Header from "../../components/header/header";
 
 function Schedule() {
   const [schedule, setSchedule] = useState([]);
@@ -54,6 +55,7 @@ function Schedule() {
 
   return (
     <>
+      <Header/>
       <ScheduleAddPut edithour={edithour} mode={mode} onCancel={onCancel} afterAction={getSchedule} />
       <ScheduleDetails
         items={schedule}

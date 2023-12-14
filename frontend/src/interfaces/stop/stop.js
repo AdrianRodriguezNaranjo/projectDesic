@@ -4,6 +4,7 @@ import StopList from "../../components/stopList/stopList";
 import React, { useEffect, useState } from "react";
 import StopService from "../../services/stop/stop.service";
 import Consts from "../../components/const/const";
+import Header from "../../components/header/header";
 
 function Stop() {
   const [stopList, setStopList] = useState([]);
@@ -52,6 +53,7 @@ function Stop() {
 
   return (
     <>
+      <Header/>
       <StopCreate stop={stop} mode={mode} onCancel={onCancel} afterAction={getStop} />
       <StopList
         items={stopList}
