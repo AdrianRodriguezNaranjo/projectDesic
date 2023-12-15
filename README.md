@@ -40,6 +40,7 @@ descriptivos, restricciones o cualquier otro cambio.
 ## 6. Interfaces
 ### Inicial Design
 ## Figma
+[a link](https://www.figma.com/file/8W3EU9eOohMVPDF4qeRto2/Desic?type=design&node-id=0-1&mode=design&t=vNjERkJd6lWnT8pg-0)
 ### Usuability
 
 ## 7. Manuals
