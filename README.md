@@ -1,66 +1,45 @@
 # Project Desic
-## 1. Introduction
+## Introduction
 * Necesity
 I am going to create an app to use and get information about the bus company Global.
 * Company
 Desic.
-* Idea
-I am going to create an app to use and get information about the bus company Global.
-## 2. Diagrams
-1. Iniciar con una pequeña introducción donde se indique los puntos que serán 
-explicados en esta documentación.
-2. Realizar los siguientes pasos para ambos diagramas primero para Entidad- Relación y 
-luego para el Relacional a excepción del paso 6 ya que se trata del SQL utilizado que en 
-este caso sería únicamente del relacional.
-3. Identificar las entidades, indicando cuáles son sus atributos descriptivos y sus 
-restricciones.
-4. Identificar las relaciones, indicando sus atributos descriptivos, reglas de negocio y 
-restricciones.
-5. Realizar un gráfico del modelo de datos.
-6. Adjuntar el SQL que se utilizó en la implementación en este caso sería el del modelo de 
-datos relacional.
-7. Finalmente es importante que esta documentación del modelo de datos siempre se 
-encuentra actualizada cuando se realicen cambios en las entidades, atributos 
-descriptivos, restricciones o cualquier otro cambio.
-![image](https://github.com/Naidr/projectDesic/assets/118465343/15d04fbd-afd8-4920-b3b6-caf0c91e0999)
-### Class Diagram
-![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
+## Diagrams
 ### ERD Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/cafd3938-1331-4eb2-9244-93874111c7f9)
-
-## 3. User Requirements
-
-## 4. Use cases
+![image](https://github.com/Naidr/projectDesic/assets/118465343/15d04fbd-afd8-4920-b3b6-caf0c91e0999)
+### Relational Diagram
+![image](https://github.com/Naidr/projectDesic/assets/118465343/9da9d2ce-65a5-4f54-a448-9f310420094c)
+### Class Diagram
+![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
+## User Requirements
+The application offers clients a way to access the information of bus lines and their schedule
+and stops.
+## Use cases
 ### VisualParading
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc55b48e-f331-4c61-8f9f-2aba1e3b0e32)
 
-## 5. Sistem performance
-
-
-## 6. Interfaces
-### Inicial Design
-## Figma
+## Interfaces
+### Figma
 [Figma](https://www.figma.com/file/8W3EU9eOohMVPDF4qeRto2/Desic?type=design&node-id=0-1&mode=design&t=vNjERkJd6lWnT8pg-0)
 ### Usuability
 
-## 7. Manuals
+## Manuals
 
-## 8. Test for Backend
+## Test for Backend
 
-## 9. Test for Fronted
-
-## 10. Tecnologies
+## Tecnologies
 * Frontend: ReactJS
 * Backend: Node.js
 * ORM: node
 * Database: MySQL
 
-## 11. Tecnologies comparation
+## Tecnologies comparation
 
-## 12. Repositories
+## Repositories
+[GitHub](https://github.com/Naidr/projectDesic.git)
+## Planification
 
-## 13. Planification
+## Conclusion
 
-## 14. Conclusion
-
-## 15. Links and references
+## Links and references
