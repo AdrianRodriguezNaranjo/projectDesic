@@ -44,7 +44,7 @@ function Login() {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("isAdmin", isAdmin);
 
-        nav("/inicial");
+        nav("/busline");
       } else {
         setVoidError("Inicio de sesión fallido");
       }

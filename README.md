@@ -78,4 +78,4 @@ and stops.
 ## Planification
 I started on November 13, so my planning was a little messy. I tried to use the agile method, but I had a lot to do in only one month. Initially, I was going to plan, but the development issues took more time than I expected. This type of planning is very effective, however, I didn't have enough time to finish all parts of the project.
 ## Conclusion
-Althought I only worked in this project for a month I learnt a lot about the development of and app. After this time, I realice that I am slower than I thougth, so for the next projects I know which parts I need to focus more. 
+Although I only worked on this project for a month, I learned a lot about the development of an app. After this time, I realized that I am slower than I thought, so for the next projects, I know which parts I need to focus on more.
