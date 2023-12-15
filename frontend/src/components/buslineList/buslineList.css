@@ -1,0 +1,45 @@
+.container-buslinelist {
+  overflow: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #00778B;
+  color: #fff;
+}
+
+td img {
+  max-width: 100px;
+  height: auto;
+}
+
+.actions-column {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.actions-column span {
+  cursor: pointer;
+}
+
+.actions-column span:hover {
+  color: #00778B;
+}

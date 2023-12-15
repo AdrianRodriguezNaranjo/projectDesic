@@ -4,6 +4,8 @@ import "./busline.css";
 import BuslineService from "../../services/busline/busline.service";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 function Busline() {
   const nav = useNavigate();
@@ -15,15 +17,16 @@ function Busline() {
     nav("/buslineupdate");
   };
 
+  const getBusline = async () => {
+    try {
+      const response = await BuslineService.getBuslines(localStorage.getItem("accessToken"));
+      setlineList(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getBusline = async () => {
-      try {
-        const response = await BuslineService.getBuslines(localStorage.getItem("accessToken"));
-        setlineList(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getBusline();
   }, []);
 
@@ -37,26 +40,36 @@ function Busline() {
     );
   };
 
-  const onDelete = ((id) => {
-    BuslineService.remove(localStorage.getItem("accessToken"),id);
-  });
+  const onDelete = async (id) => {
+    await BuslineService.remove(localStorage.getItem("accessToken"), id);
+    getBusline();
+  };
 
   const onUpdate = ((data) => {
-    localStorage.setItem("busline",JSON.stringify(data));
+    localStorage.setItem("busline", JSON.stringify(data));
     navUpdate();
   });
 
   const goToStop = ((id) => {
-    localStorage.setItem("idBusline",id);
+    localStorage.setItem("idBusline", id);
     nav("/stop");
   });
 
-  
+  const goToSchedule = ((id) => {
+    localStorage.setItem("idBusline", id);
+    nav("/schedule");
+  });
+
   return (
-    <>
-      <BuslineCreate />
-      <BuslineList items={lineList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate} goToStop={goToStop}/>
-    </>
+    <div className="busline-content">
+      <Header />
+      <BuslineCreate afterAction={getBusline}/>
+      <BuslineList items={lineList} rows={row}
+        headline={headline} onDelete={onDelete}
+        onUpdate={onUpdate} goToStop={goToStop}
+        goToSchedule={goToSchedule} />
+      <Footer />
+    </div>
   );
 }
 

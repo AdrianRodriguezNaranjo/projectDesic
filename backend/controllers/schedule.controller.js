@@ -1,6 +1,7 @@
 const db = require("../models");
 const Schedule = db.schedule;
 const Op = db.Sequelize.Op;
+const Busline = db.busline;
 const utils = require("../utils");
 
 // Crear y guardar un horario
@@ -10,16 +11,23 @@ exports.create = (req, res) => {
 
   // Crear un horario
   const schedule = {
-    dayslist1: req.body.dayslist1,
-    hourlist1: req.body.hourlist1,
-    dayslist2: req.body.dayslist2,
-    hourlist2: req.body.hourlist2,
+    hour: req.body.hour,
   };
 
-  // Guardar el horario en la base de datos
   Schedule.create(schedule)
-    .then(data => {
-      res.send(data);
+    .then(newSchedule => {
+      if (req.body.buslineId) {
+        Busline.findByPk(req.body.buslineId)
+          .then(busline => {
+            if (busline) {
+              newSchedule.addBusline(busline);
+            }
+          })
+          .catch(err => {
+            console.error("Error finding Busline:", err);
+          });
+      }
+      res.send(newSchedule);
     })
     .catch(err => {
       res.status(500).send({
@@ -31,12 +39,12 @@ exports.create = (req, res) => {
 // Obtener todos los horarios de la base de datos
 exports.findAll = (req, res) => {
   Schedule.findAll().then(data => {
-      res.send(data);
-    }).catch(err => {
-      res.status(500).send({
-        message: err.message || "Ocurrió un error al obtener todos los horarios."
-      });
+    res.send(data);
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message || "Ocurrió un error al obtener todos los horarios."
     });
+  });
 };
 
 // Encontrar un único horario por su ID
@@ -65,10 +73,7 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   const schedule = {
-    dayslist1: req.body.dayslist1,
-    hourlist1: req.body.hourlist1,
-    dayslist2: req.body.dayslist2,
-    hourlist2: req.body.hourlist2,
+    hour: req.body.hour,
   };
 
   Schedule.update(schedule, {

@@ -3,7 +3,9 @@ import StopCreate from "../../components/stopCreate/stopCreate";
 import StopList from "../../components/stopList/stopList";
 import React, { useEffect, useState } from "react";
 import StopService from "../../services/stop/stop.service";
+import BuslineService from "../../services/busline/busline.service";
 import Consts from "../../components/const/const";
+import Header from "../../components/header/header";
 
 function Stop() {
   const [stopList, setStopList] = useState([]);
@@ -11,17 +13,21 @@ function Stop() {
   const headline = ['latitude', 'longitude', 'name'];
   const [mode, setMode] = useState(Consts.addMode);
 
+  const getStop = async () => {
+    try {
+      const response = await BuslineService.getStopOfBusline(localStorage.getItem("accessToken"),
+      localStorage.getItem("idBusline"));
+      const res = response.map(item => item.stop);
+      setStopList(res);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getStop = async () => {
-      try {
-        const response = await StopService.getStops();
-        setStopList(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getStop();
-  }, [stopList]);
+  }, [])
 
   const row = (item) => {
     return (
@@ -33,14 +39,14 @@ function Stop() {
     );
   };
 
-  const onDelete = ((id) => {
-    StopService.remove(id);
-  });
+  const onDelete = async (id) => {
+    await StopService.remove(id);
+    getStop();
+  };
 
   const onUpdate = ((data) => {
     setMode(Consts.editMode);
     const stopToEdit = stopList.find(stop => stop.id === data.id);
-    console.log(stopToEdit);
     setStop(stopToEdit);
   });
 
@@ -51,8 +57,15 @@ function Stop() {
 
   return (
     <>
-      <StopCreate stop={stop} mode={mode} onCancel={onCancel}/>
-      <StopList items={stopList} rows={row} headline={headline} onDelete={onDelete} onUpdate={onUpdate} />
+      <Header/>
+      <StopCreate stop={stop} mode={mode} onCancel={onCancel} afterAction={getStop} />
+      <StopList
+        items={stopList}
+        rows={row}
+        headline={headline}
+        onDelete={onDelete}
+        onUpdate={onUpdate}
+      />
     </>
   );
 }

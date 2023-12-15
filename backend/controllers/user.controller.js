@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 // Create and Save a new User
 exports.create = (req, res) => {
   //Validate request
-  if (!req.body.password || !req.body.email) {
+  if (!req.body.password) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -51,7 +51,6 @@ exports.create = (req, res) => {
               err.message || "Some error occurred while creating the User."
           });
         });
-
     })
     .catch(err => {
       res.status(500).send({
@@ -59,13 +58,12 @@ exports.create = (req, res) => {
           err.message || "Some error occurred while retrieving tutorials."
       });
     });
-
 };
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
 
-  User.findAll()
+  User.findAll({ attributes: { exclude: ['password'] } })
     .then(data => {
       res.send(data);
     })
@@ -81,7 +79,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  User.findByPk(id)
+  User.findByPk(id, { attributes: { exclude: ['password'] } })
     .then(data => {
       res.send(data);
     })
@@ -95,7 +93,7 @@ exports.findOne = (req, res) => {
 // Update a User by the id in the request
 // const encryptPassword =  bcrypt.hashSync(req.body.password);
 exports.update = (req, res) => {
-  const id = req.params.id;  
+  const id = req.params.id;
 
   if (req.body.password) {
     // Encriptar la nueva contraseña

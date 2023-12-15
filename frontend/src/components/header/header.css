@@ -1,0 +1,33 @@
+.header-content {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #00778B;
+  color: #ecf0f1;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.left-content,
+.right-content {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.left-content svg,
+.right-content svg {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.left-content svg:hover,
+.right-content svg:hover {
+  color: #f2a900;
+}

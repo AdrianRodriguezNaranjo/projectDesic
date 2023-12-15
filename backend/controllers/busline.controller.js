@@ -18,7 +18,6 @@ exports.create = (req, res) => {
     direction: req.body.direction,
     startstop: req.body.startstop,
     finalstop: req.body.finalstop,
-    liststop: req.body.liststop,
     filename: req.file ? req.file.filename : ""
   }
 
@@ -73,7 +72,6 @@ exports.update = (req, res) => {
     direction: req.body.direction,
     startStop: req.body.startStop,
     finalStop: req.body.finalStop,
-    listStop: req.body.listStop,
     filename: req.file ? req.file.filename : ""
   }
 

@@ -3,54 +3,75 @@ import { useState } from 'react';
 import { Button, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
 import BuslineService from "../../services/busline/busline.service";
+import Header from "../header/header";
 
 function BuslineUpdate() {
-    const nav = useNavigate();
+  const nav = useNavigate();
 
-    const data = JSON.parse(localStorage.getItem("busline"));
+  const data = JSON.parse(localStorage.getItem("busline"));
 
-    const [direction, setDirection] = useState(data.direction || "");
-    const [startstop, setStartstop] = useState(data.startstop || "");
-    const [finalstop, setFinalstop] = useState(data.finalstop || "");
+  const [direction, setDirection] = useState(data.direction || "");
+  const [startstop, setStartstop] = useState(data.startstop || "");
+  const [finalstop, setFinalstop] = useState(data.finalstop || "");
 
-    const [file, setFile] = useState(data.filename || "");
+  const [newfile, setNewFile] = useState(data.filename || "");
 
-    const [voidLoginError, setVoidError] = useState("");
+  const [voidLoginError, setVoidError] = useState("");
 
-    // const validateInput = () => {
+  // const validateInput = () => {
 
-    // }
+  // }
 
-    const submitBusline = async () => {
-        const formData = new FormData();
-        formData.append('direction', direction);
-        formData.append('startstop', startstop);
-        formData.append('finalstop', finalstop);
-        formData.append('file', file);
+  const submitBusline = async () => {
+    const formData = new FormData();
+    formData.append('direction', direction);
+    formData.append('startstop', startstop);
+    formData.append('finalstop', finalstop);
+    formData.append('file', newfile);
 
-        try {
-            await BuslineService.update(localStorage.getItem("accessToken"), data.id, formData);
-            nav("/busline");
-        } catch (error) {
-            console.error("Error updating busline", error);
-            setVoidError("Error al actualizar la línea de guagua");
-        }
+    try {
+      await BuslineService.update(localStorage.getItem("accessToken"), data.id, formData);
+      nav("/busline");
+    } catch (error) {
+      console.error("Error updating busline", error);
+      setVoidError("Error al actualizar la línea de guagua");
     }
+  }
 
-    return (
-        <div className="container-buslinecreate">
-            <h2>Actualiza línea de guagua</h2>
-            <Input placeholder={data.direction} value={direction} onChange={(e) => setDirection(e.target.value)} />
-            <Input placeholder={data.startstop} value={startstop} onChange={(e) => setStartstop(e.target.value)} />
-            <Input placeholder={data.finalstop} value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
+  const onCancel = async () => {
+    nav("/busline");
+  }
 
-            <Input onChange={(e) => setFile(e.target.files[0])}
-                type="file"
-                accept="image/*" />
-            {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
-            <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Actualizar</Button>
+  return (
+    <>
+      <Header />
+      <div className="container-buslinecreate">
+        <h2>Actualiza línea de guagua</h2>
+        <Input placeholder={data.direction} value={direction} onChange={(e) => setDirection(e.target.value)} />
+        <Input placeholder={data.startstop} value={startstop} onChange={(e) => setStartstop(e.target.value)} />
+        <Input placeholder={data.finalstop} value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
+
+        <Input
+          onChange={(e) => setNewFile(e.target.files[0])}
+          type="file"
+          accept="image/*"
+          name="image" />
+        {/* <div className="images">
+      {newfile && (
+        <div className="image">
+          <img src={newfile} height="200" alt="upload" />
+          <Button onClick={() => setNewFile(null)}>
+            Eliminar imagen
+          </Button>
         </div>
-    );
+      )}
+    </div> */}
+        {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
+        <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Actualizar</Button>
+        <Button className="buttonCancel" danger type="primary" onClick={onCancel}>Cancelar</Button>
+      </div>
+    </>
+  );
 }
 
 export default BuslineUpdate;

@@ -1,4 +1,4 @@
-.container-stopcreate {
+.container-schedule {
   max-width: 400px;
   margin: auto;
   border-radius: 5px;
@@ -19,18 +19,8 @@ h2 {
   margin-top: 10px;
 }
 
-.buttonCreateStop {
+.buttonSchedule {
   width: 100%;
   margin-top: 20px;
   background-color: #f2a900;
-}
-
-.buttonCancel {
-  width: 100%;
-  margin-top: 10px;
-  background-color: #ff4d4f;
-}
-
-.buttonCancel:hover {
-  background-color: #ff4d4f;
 }

@@ -40,11 +40,11 @@ const remove = async (id) => {
   }
 };
 
-const BuslineService = {
+const StopService = {
   getStops,
   create,
   update,
   remove
 };
 
-export default BuslineService;
+export default StopService;

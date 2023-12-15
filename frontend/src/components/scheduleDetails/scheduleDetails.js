@@ -1,12 +1,12 @@
-import "./stopList.css";
 import React from "react";
+import "./scheduleDetails.css"
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
-const StopList = ({ items, rows, headline, onDelete, onUpdate }) => {
+const ScheduleDetails = ({ items, rows, headline, onDelete, onUpdate }) => {
 
   return (
-    <div className="container-stoplist">
-      <h2>Lista de paradas</h2>
+    <div className="container-scheduledetails">
+      <h2>Horario</h2>
       <table>
         <thead>
           <tr>
@@ -29,13 +29,13 @@ const StopList = ({ items, rows, headline, onDelete, onUpdate }) => {
             ))
           ) : (
             <tr>
-              <td colSpan={headline.length + 1}>No hay paradas</td>
+              <td colSpan={headline.length + 1}>Fuera de servicio</td>
             </tr>
           )}
         </tbody>
       </table>
     </div>
   );
-}
+};
 
-export default StopList;
+export default ScheduleDetails;

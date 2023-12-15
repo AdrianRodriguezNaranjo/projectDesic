@@ -1,18 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
   const Schedule = sequelize.define("schedule", {
-    dayslist1: {
-      type: Sequelize.STRING
-    },
-    hourlist1: {
-      type: Sequelize.STRING
-    },
-    dayslist2: {
-      type: Sequelize.STRING
-    },
-    hourlist2: {
+    hour: {
       type: Sequelize.STRING
     },
   });
+  
+  Schedule.associate = (models) => {
+    Schedule.belongsToMany(models.busline, { through: models.lineschedule, onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+  };
 
   return Schedule;
 };

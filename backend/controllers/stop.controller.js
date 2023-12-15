@@ -1,6 +1,7 @@
 const db = require("../models");
 const Stop = db.stop;
 const Op = db.Sequelize.Op;
+const Busline = db.busline;
 const utils = require("../utils");
 
 // Create and Save a stop bus
@@ -20,19 +21,31 @@ exports.create = (req, res) => {
     name: req.body.name
   }
 
-  // Save stop in the database
-  Stop.create(stop).then(data => {
-    res.send(data);
-  }).catch(err => {
-    res.status(500).send({
-      message: err.message || "Some error occurred while creating the stop"
+  Stop.create(stop)
+    .then(newStop => {
+      if (req.body.buslineId) {
+        Busline.findByPk(req.body.buslineId)
+          .then(busline => {
+            if (busline) {
+              newStop.addBusline(busline);
+            }
+          })
+          .catch(err => {
+            console.error("Error finding Busline:", err);
+          });
+      }
+      res.send(newStop);
     })
-  });
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || "Ocurrió un error al crear el horario."
+      });
+    });
 };
 
 // Retrieve all stops from the database.
 exports.findAll = (req, res) => {
-    Stop.findAll().then(data => {
+  Stop.findAll().then(data => {
     res.send(data);
   }).catch(err => {
     res.status(500).send({
