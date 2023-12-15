@@ -1,6 +1,11 @@
 .container-schedule {
   max-width: 400px;
-  margin: auto;
+  height: 26%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 5px;
   background-color: #ffffff;
 }

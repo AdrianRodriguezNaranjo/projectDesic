@@ -4,6 +4,7 @@ import { Button, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
 import BuslineService from "../../services/busline/busline.service";
 import Header from "../header/header";
+import Footer from "../footer/footer";
 
 function BuslineUpdate() {
   const nav = useNavigate();
@@ -69,6 +70,7 @@ function BuslineUpdate() {
         {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
         <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Actualizar</Button>
         <Button className="buttonCancel" danger type="primary" onClick={onCancel}>Cancelar</Button>
+        <Footer/>
       </div>
     </>
   );
