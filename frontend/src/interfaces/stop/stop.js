@@ -6,6 +6,7 @@ import StopService from "../../services/stop/stop.service";
 import BuslineService from "../../services/busline/busline.service";
 import Consts from "../../components/const/const";
 import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 function Stop() {
   const [stopList, setStopList] = useState([]);
@@ -19,7 +20,6 @@ function Stop() {
       localStorage.getItem("idBusline"));
       const res = response.map(item => item.stop);
       setStopList(res);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +56,7 @@ function Stop() {
   });
 
   return (
-    <>
+    <div className="stop-content">
       <Header/>
       <StopCreate stop={stop} mode={mode} onCancel={onCancel} afterAction={getStop} />
       <StopList
@@ -66,7 +66,8 @@ function Stop() {
         onDelete={onDelete}
         onUpdate={onUpdate}
       />
-    </>
+      <Footer />
+    </div>
   );
 }
 

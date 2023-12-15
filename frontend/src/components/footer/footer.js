@@ -1,14 +1,14 @@
 import "./footer.css"
 import React from 'react';
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { DatabaseOutlined, EnvironmentOutlined, UserOutlined } from '@ant-design/icons';
 
 function Footer() {
-  // const nav = useNavigate();
+  const nav = useNavigate();
 
-  // const goBack = (() => {
-  //   nav("/busline");
-  // });
+  const gotoBusline = (() => {
+    nav("/busline");
+  });
   // <div className="footer-item" onClick={() => /* Handle Click */}>
 
   return (
@@ -17,7 +17,7 @@ function Footer() {
       <EnvironmentOutlined />
       <span>Paradas</span>
     </div>
-    <div className="footer-item">
+    <div className="footer-item" onClick={() => gotoBusline()}>
       <DatabaseOutlined />
       <span>Líneas</span>
     </div>

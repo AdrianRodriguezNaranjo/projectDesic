@@ -6,6 +6,7 @@ import ScheduleDetails from "../../components/scheduleDetails/scheduleDetails";
 import ScheduleAddPut from "../../components/scheduleAddPut/scheduleAddPut";
 import Consts from "../../components/const/const";
 import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 function Schedule() {
   const [schedule, setSchedule] = useState([]);
@@ -54,7 +55,7 @@ function Schedule() {
   });
 
   return (
-    <>
+    <div className="stop-content">
       <Header/>
       <ScheduleAddPut edithour={edithour} mode={mode} onCancel={onCancel} afterAction={getSchedule} />
       <ScheduleDetails
@@ -64,7 +65,8 @@ function Schedule() {
         onDelete={onDelete}
         onUpdate={onUpdate}
       />
-    </>
+      <Footer />
+    </div>
   );
 }
 
