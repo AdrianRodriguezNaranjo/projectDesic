@@ -21,13 +21,17 @@ The core of the project lies in creating a mobile application that leverages tec
 ### Figma
 [Figma](https://www.figma.com/file/8W3EU9eOohMVPDF4qeRto2/Desic?type=design&node-id=0-1&mode=design&t=vNjERkJd6lWnT8pg-0)
 ### Usuability
-
+The use of these colors in the app is because they are the same colors as the bus company's branding. Therefore, I am trying to incorporate a corporate style into the project.
+![image](https://github.com/Naidr/projectDesic/assets/118465343/726f64ea-d771-4acc-afc3-22abd6d34c34)
+As observed in the previous image, it features a simple design aimed at avoiding clutter.
+It includes persistent menus throughout the interface, enhancing user navigation and ensuring easy access to the desired features.
+![image](https://github.com/Naidr/projectDesic/assets/118465343/73d6ae07-5c97-4d07-8892-8db60e9238c7)
+I have some validation.
 ## Manuals
 ### Prerequisites
 - Installed Node.js
 - Relational MySQL database
 - npm package manager
-
 ### Installation Steps
 1. Clone the server repository from GitHub:
    ```bash
