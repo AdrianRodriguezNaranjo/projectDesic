@@ -29,10 +29,10 @@ function BuslineCreate({afterAction}) {
   return (
     <div className="container-buslinecreate">
       <h2>Crear Línea</h2>
-      <Input placeholder="Direction" value={direction} onChange={(e) => setDirection(e.target.value)} />
-      <Input placeholder="Start Stop" value={startstop} onChange={(e) => setStartstop(e.target.value)} />
-      <Input placeholder="Final Stop" value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
-      <Input 
+      <Input className="direction" placeholder="Direction" value={direction} onChange={(e) => setDirection(e.target.value)} />
+      <Input className="startstop" placeholder="Start Stop" value={startstop} onChange={(e) => setStartstop(e.target.value)} />
+      <Input className="finalstop" placeholder="Final Stop" value={finalstop} onChange={(e) => setFinalstop(e.target.value)} />
+      <Input className="imagebusline"
         onChange={(e) => setFile(e.target.files[0])}
         type="file"
         accept="image/*"/>
@@ -40,7 +40,7 @@ function BuslineCreate({afterAction}) {
         {file && (
           <div className="image">
             <img src={URL.createObjectURL(file)} height="200" alt="upload" />
-            <Button onClick={() => setFile(null)}>
+            <Button className="delete" onClick={() => setFile(null)}>
               Eliminar imagen
             </Button>
           </div>
