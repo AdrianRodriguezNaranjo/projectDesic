@@ -13,8 +13,6 @@ Desic.
 ### Class Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
 ## User Requirements
-The application offers clients a way to access the information of bus lines and their schedule
-and stops.
 ## Use cases
 ### VisualParading
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc55b48e-f331-4c61-8f9f-2aba1e3b0e32)
@@ -53,9 +51,9 @@ and stops.
 ### Result:
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/8bdeee81-edbc-4f67-9d57-b871d5462a2b)
 ## Tecnologies
-* ReactJS
-* Express
-* Sequelize
+* ReactJS: React es una biblioteca de JavaScript para construir interfaces de usuario.
+* Express: Express.js es un marco de aplicaciones web de Node.js utilizado para crear servidores y aplicaciones web.
+* Sequelize: Sequelize es una biblioteca de Node.js que se utiliza para interactuar con bases de datos SQL y es especialmente útil en aplicaciones que utilizan Node.js.
 * Database: MySQL
 ## Tecnologies comparation
 ### React.js:
