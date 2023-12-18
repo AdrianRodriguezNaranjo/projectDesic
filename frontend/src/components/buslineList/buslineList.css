@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 0px;
+  margin-bottom: 50px;
 }
 
 h2 {
@@ -14,14 +15,15 @@ h2 {
 table {
   width: 100%;
   border-collapse: collapse;
+  padding: 8px;
   margin-top: 20px;
 }
 
 th,
 td {
   border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+  margin: auto;
+  text-align: center;
 }
 
 th {
@@ -36,7 +38,7 @@ td img {
 
 .actions-column {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
 }
 

@@ -1,9 +1,10 @@
 # Project Desic
 ## Introduction
-* Necesity
-I am going to create an app to use and get information about the bus company Global.
-* Company
-Desic.
+This application aims to provide users with efficient and up-to-date information about the local bus company, thereby improving accessibility and the overall travel experience. We aspire to expand the application's utility to benefit users of public transportation services across the Canarias region, including other type of public transportation.
+### Development for
+We want to create an essential tool for the general population interested in accessing accurate and timely information about public transportation in Gran Canaria. This project seeks to simplify and enhance user experiences when interacting with local bus services.
+### Brief Idea
+The core of the project lies in creating a mobile application that leverages technology to provide users with detailed information about local bus company services. From schedules and routes, the application aims to optimize travel planning and decision-making for users.
 ## Diagrams
 ### ERD Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/cafd3938-1331-4eb2-9244-93874111c7f9)
@@ -13,8 +14,6 @@ Desic.
 ### Class Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
 ## User Requirements
-The application offers clients a way to access the information of bus lines and their schedule
-and stops.
 ## Use cases
 ### VisualParading
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc55b48e-f331-4c61-8f9f-2aba1e3b0e32)
@@ -22,13 +21,24 @@ and stops.
 ### Figma
 [Figma](https://www.figma.com/file/8W3EU9eOohMVPDF4qeRto2/Desic?type=design&node-id=0-1&mode=design&t=vNjERkJd6lWnT8pg-0)
 ### Usuability
+The use of these colors in the app is because they are the same colors as the bus company's branding. Therefore, I am trying to incorporate a corporate style into the project.
 
+
+![image](https://github.com/Naidr/projectDesic/assets/118465343/726f64ea-d771-4acc-afc3-22abd6d34c34)
+
+
+As observed in the previous image, it features a simple design aimed at avoiding clutter.
+It includes persistent menus throughout the interface, enhancing user navigation and ensuring easy access to the desired features.
+
+
+![image](https://github.com/Naidr/projectDesic/assets/118465343/73d6ae07-5c97-4d07-8892-8db60e9238c7)
+
+I have some validation.
 ## Manuals
 ### Prerequisites
 - Installed Node.js
 - Relational MySQL database
 - npm package manager
-
 ### Installation Steps
 1. Clone the server repository from GitHub:
    ```bash
@@ -53,9 +63,9 @@ and stops.
 ### Result:
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/8bdeee81-edbc-4f67-9d57-b871d5462a2b)
 ## Tecnologies
-* ReactJS
-* Express
-* Sequelize
+* ReactJS: React es una biblioteca de JavaScript para construir interfaces de usuario.
+* Express: Express.js es un marco de aplicaciones web de Node.js utilizado para crear servidores y aplicaciones web.
+* Sequelize: Sequelize es una biblioteca de Node.js que se utiliza para interactuar con bases de datos SQL y es especialmente útil en aplicaciones que utilizan Node.js.
 * Database: MySQL
 ## Tecnologies comparation
 ### React.js:
