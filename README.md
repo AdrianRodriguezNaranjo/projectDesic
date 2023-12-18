@@ -1,9 +1,10 @@
 # Project Desic
 ## Introduction
-* Necesity
-I am going to create an app to use and get information about the bus company Global.
-* Company
-Desic.
+This application aims to provide users with efficient and up-to-date information about the local bus company, thereby improving accessibility and the overall travel experience. We aspire to expand the application's utility to benefit users of public transportation services across the Canarias region, including other type of public transportation.
+### Development for
+We want to create an essential tool for the general population interested in accessing accurate and timely information about public transportation in Gran Canaria. This project seeks to simplify and enhance user experiences when interacting with local bus services.
+### Brief Idea
+The core of the project lies in creating a mobile application that leverages technology to provide users with detailed information about local bus company services. From schedules and routes, the application aims to optimize travel planning and decision-making for users.
 ## Diagrams
 ### ERD Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/cafd3938-1331-4eb2-9244-93874111c7f9)
