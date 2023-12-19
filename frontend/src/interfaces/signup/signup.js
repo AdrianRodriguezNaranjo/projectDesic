@@ -15,9 +15,6 @@ function Signup() {
   const [passwordRepeat, setPasswordRepeat] = useState("");
   // const [isAdmin, setisAdmin] = useState("");
 
-  // const [user, setUser] = useState(nameuser="",username="",password="",isAdmin="");
-
-
   const [voidLoginError, setVoidError] = useState("");
 
   const navCancel = () => {
@@ -25,6 +22,7 @@ function Signup() {
   }
 
   const validateInput = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!username && !password && !email && !passwordRepeat) {
       setVoidError("Faltan los campos");
       return false;
@@ -39,6 +37,12 @@ function Signup() {
       return false;
     } else if (!passwordRepeat) {
       setVoidError("Repite la contraseña");
+      return false;
+    } else if (password !== passwordRepeat) {
+      setVoidError("La contraseña no es la misma");
+      return false;
+    } else if (!emailRegex.test(email)) {
+      setVoidError("Formato de email inválido");
       return false;
     } else {
       setVoidError("");

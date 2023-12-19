@@ -3,27 +3,44 @@ import { useState } from 'react';
 import { Button, Input } from 'antd';
 import BuslineService from "../../services/busline/busline.service";
 
-function BuslineCreate({afterAction}) {
+function BuslineCreate({ afterAction }) {
   const [file, setFile] = useState();
   const [direction, setDirection] = useState();
   const [startstop, setStartstop] = useState();
   const [finalstop, setFinalstop] = useState();
 
-  // const [voidLoginError, setVoidError] = useState("");
+  const [voidLoginError, setVoidError] = useState("");
 
-  // const validateInput = () => {
-
-  // }
+  const validateInput = () => {
+    if (!direction && !startstop && !finalstop) {
+      setVoidError("Faltan los campos");
+      return false;
+    } else if (!direction) {
+      setVoidError("Falta la dirección");
+      return false;
+    } else if (!startstop) {
+      setVoidError("Falta la parada de inicio");
+      return false;
+    } else if (!finalstop) {
+      setVoidError("Falta la parada final");
+      return false;
+    } else {
+      setVoidError("");
+      return true;
+    }
+  }
 
   const submitBusline = async () => {
-    const formData = new FormData();
-    formData.append('direction', direction);
-    formData.append('startstop', startstop);
-    formData.append('finalstop', finalstop);
-    formData.append('file', file);
-
-    await BuslineService.create(localStorage.getItem("accessToken"), formData);
-    afterAction();
+    if(validateInput()){
+      const formData = new FormData();
+      formData.append('direction', direction);
+      formData.append('startstop', startstop);
+      formData.append('finalstop', finalstop);
+      formData.append('file', file);
+  
+      await BuslineService.create(localStorage.getItem("accessToken"), formData);
+      afterAction();
+    }    
   }
 
   return (
@@ -35,7 +52,7 @@ function BuslineCreate({afterAction}) {
       <Input className="imagebusline"
         onChange={(e) => setFile(e.target.files[0])}
         type="file"
-        accept="image/*"/>
+        accept="image/*" />
       <div className="images">
         {file && (
           <div className="image">
@@ -46,7 +63,7 @@ function BuslineCreate({afterAction}) {
           </div>
         )}
       </div>
-      {/* {voidLoginError && <div className="error-mesage">{voidLoginError}</div>} */}
+      {voidLoginError && <div className="error-mesage">{voidLoginError}</div>}
       <Button className="buttonCreateBusline" type="primary" onClick={submitBusline}>Añadir</Button>
     </div>
   );
