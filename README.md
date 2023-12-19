@@ -41,6 +41,8 @@ It includes persistent menus throughout the interface, enhancing user navigation
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/73d6ae07-5c97-4d07-8892-8db60e9238c7)
 
 I have some validation.
+Secure handling of user information.
+I encrypted the password and used a bearer token to transfer the information.
 ## Manuals
 ### Prerequisites
 - Installed Node.js
@@ -70,10 +72,10 @@ I have some validation.
 ### Result:
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/8bdeee81-edbc-4f67-9d57-b871d5462a2b)
 ## Tecnologies
-* ReactJS: React es una biblioteca de JavaScript para construir interfaces de usuario.
-* Express: Express.js es un marco de aplicaciones web de Node.js utilizado para crear servidores y aplicaciones web.
-* Sequelize: Sequelize es una biblioteca de Node.js que se utiliza para interactuar con bases de datos SQL y es especialmente útil en aplicaciones que utilizan Node.js.
-* Database: MySQL
+* ReactJS: React is a JavaScript library for building user interfaces. It is used on the client side to create interactive user interfaces. With React, you can develop reusable components and efficiently manage the UI state. React works in the browser and communicates with the server through HTTP requests or other communication methods such as sockets.
+* Express.js: Express.js is a web application framework for Node.js, used to create servers and web applications. You can use Express.js to define routes, handle HTTP requests and responses, and organize your application efficiently. In the context of a full web application, Express.js typically handles client requests, performs operations in the database if necessary, and then sends a response back to the client.
+* Sequelize: Sequelize is a Node.js library used to interact with SQL databases, such as MySQL. You can define data models, execute queries to the database, and manage relationships between tables using Sequelize. In the context of Express.js, Sequelize is often integrated as middleware to interact with the database from Express routes.
+* MySQL: MySQL is a relational database that uses the SQL language to manage and manipulate data. Sequelize handles interactions with MySQL in your application, making it easy to create, read, update, and delete data.
 ## Tecnologies comparation
 ### React.js:
 #### Advantages:
