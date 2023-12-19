@@ -14,6 +14,13 @@ The core of the project lies in creating a mobile application that leverages tec
 ### Class Diagram
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc39214e-51ce-429f-98ab-517d05b8783a)
 ## User Requirements
+### Admin
+Manages bus lines by creating, deleting, and modifying them.
+Manages stops by creating, deleting, and modifying them.
+Manages schedules by creating, deleting, and modifying them.
+### Client
+Register
+Consults data on existing bus line, stops and schedules.
 ## Use cases
 ### VisualParading
 ![image](https://github.com/Naidr/projectDesic/assets/118465343/fc55b48e-f331-4c61-8f9f-2aba1e3b0e32)
